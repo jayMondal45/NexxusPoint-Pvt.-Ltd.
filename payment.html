@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexxusPoint Pvt. Ltd.</title>
+    <!--------------=============== Bootstrap4 Css =================-------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-------------============ Google font cdn ===============------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!----------============== Font Awesome 6 Cdn ===============------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Animate.css for animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!--------------============== My Css =============------------->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+
+    <!-----------============= Navbar start -------------->
+    <div class="navbar_full">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <a href="index.html">
+                            <div class="logo"><img src="img/Noor-logo.png"></div>
+                        </a>
+                        <div class="nav-links">
+                            <a href="index.html">Home</a>
+                            <a href="#about">About Us</a>
+                            <a href="#pricing">Pricing</a>
+                        </div>
+                        <a href="payment.html">
+                            <div class="pay-btn">Pay Now</div>
+                        </a>
+                        <div class="hamburger" id="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </nav>
+
+                    <div class="mobile-menu" id="mobileMenu">
+                        <a href="index.html">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="payment.html">Pay Now</a>
+                    </div>
+
+                    <div class="overlay" id="overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-----------============ Secure Payment section start ===================------------>
+    <div class="container secure_box">
+        <div class="row">
+            <div class="col-lg-4 col-12 secure">
+                <h2>Secure Payment</h2>
+            </div>
+            <div class="col-lg-4 col-12 payment_option"><img src="img/Payment-image.svg"></div>
+            <div class="col-lg-2 col-0"></div>
+            <div class="col-lg-2 col-12 payment_secure">
+                <center><img src="img/security.png"></center>
+            </div>
+        </div>
+    </div>
+
+    <!------------------================= Payment Box start =============------------>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="payment-box">
+                    <div class="top_box">
+                        <h2>Payment</h2>
+                    </div>
+                    <div class="payment">
+                        <!-- Country and Currency -->
+                        <form id="paymentForm">
+                            <div class="row">
+                                <div class="form-group col-lg-3 col-12">
+
+                                    <select class="form-control" id="country" onchange="updateCurrency()">
+                                        <option value="" disabled selected>Select Country</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-12">
+                                    <div class="form-group currency-box">
+                                        <input type="text" id="currency" class="form-control" placeholder="---"
+                                            readonly>
+                                    </div>
+                                    <div class="form-group amount">
+                                        <input type="text" class="form-control" id="text" placeholder="Enter Amount"
+                                            oninput="checkForm()">
+                                    </div>
+                                </div>
+
+
+                                <!-- Name and Email -->
+                                <div class="form-group col-lg-3 col-12">
+
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                        oninput="checkForm()">
+                                    <div class="valid-feedback" id="name-feedback"><i class="fas fa-check-circle"></i>
+                                        Looks
+                                        good!</div>
+                                </div>
+
+                                <div class="form-group col-lg-3 col-12">
+
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                        oninput="checkForm()">
+                                    <div class="valid-feedback" id="email-feedback"><i class="fas fa-check-circle"></i>
+                                        Looks good!</div>
+                                </div>
+
+                                <!-- Card Details (Hidden until form is filled) -->
+                                <div class="col-lg-7 col-12 card_box">
+                                    <div id="card-details" class="hidden">
+
+
+                                        <div class="form-group" style="width: 100%;">
+                                            <label for="card-number">Card Number:</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="card-number"
+                                                    placeholder="1234 1234 1234 1234" maxlength="16"
+                                                    style="width: 60%;">
+                                                <div class="input-group-append card-icons" style="width: 40%;">
+                                                    <img src="https://img.icons8.com/color/48/000000/visa.png"
+                                                        alt="Visa">
+                                                    <img src="https://img.icons8.com/color/48/000000/mastercard.png"
+                                                        alt="Mastercard">
+                                                    <img src="https://img.icons8.com/color/48/000000/amex.png"
+                                                        alt="Amex">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="expiry-date">Expiry Date:</label>
+                                                <input type="text" class="form-control" id="expiry-date"
+                                                    placeholder="MM/YY" maxlength="5">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="cvv">Security Code (CVV):</label>
+                                                <input type="text" class="form-control" id="cvv" placeholder="CVC"
+                                                    maxlength="3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-12 payment_btn">
+                                    <button type="submit" class="btn btn-pay mt-4 animate__animated animate__pulse">Pay
+                                        Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------=========== Footer section start ==============------------>
+
+    <div class="footer_full">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12 copyright_box">
+                    <div class="logo_box">
+                        <center><a href="index.html"><img src="img/Noor-logo.png"></a></center>
+                        <h4>NexxusPoint Pvt. Ltd.</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12 copyright_box">
+                    <h4>Contact Us</h4>
+                    <a href="tel:+91 123456789"> <i class="fa-solid fa-headset"></i> +91 123456789</a>
+                    <a href="tel:+91 987654321"> <i class="fa-solid fa-headset"></i> +91 987654321</a>
+                    <a href="mailto:info.henharrier@gmail.com"><i class="fa-solid fa-envelope"></i>
+                        info.xyz@gmail.com</a>
+                </div>
+                <div class="col-lg-3 col-12 copyright_box">
+                    <h4>Address</h4>
+                    <p>Unit no: 519B, PS Qube. New Town, Action Area II, Kokata, Pin: 700986</p>
+                </div>
+                <div class="col-lg-3 col-12 copyright_box">
+                    <h4>Payment</h4>
+                    <div class="payment_option">
+                        <img src="img/Payment-image.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------================= Copyright section start =================--------->
+    <div class="copyright_full">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>© Copyright 2025 | NexxusPoint Pvt Ltd | All rights reserved</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!------------============ Bootstrap4 Js ===============------------>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-----------============ Navbar Js ==========-------------->
+    <script src="js/navbar.js"></script>
+    <!-----------============== Payment Js ===========------------->
+    <script src="js/payment.js"></script>
+</body>
+
+</html>
