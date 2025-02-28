@@ -1080,3 +1080,6 @@ select.form-control:not([size]):not([multiple]) {
         height: 100%;
     }
 }
+.amount{
+    width: 76% !important;
+}
